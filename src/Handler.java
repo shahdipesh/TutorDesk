@@ -14,4 +14,16 @@ public class Handler {
     public void topicHandler(String topicName, String tutorId, int price) {
         service.addTopic(topicName,tutorId,price);
     }
+
+    public void handleRequest(String studentId, String topic, int hours) {
+        service.handleTutoringReq(studentId,topic,hours);
+    }
+
+    public void handleStudentReport(String studentId) {
+        service.handleStudentReport(studentId);
+    }
+
+    public void handleTutorReport(String tutorId) {
+        service.handleTutorReport(tutorId);
+    }
 }

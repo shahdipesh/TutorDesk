@@ -2,6 +2,7 @@ public class Tutor extends Data {
 
     private int availableHours;
     SinglyLinkedList topics;
+    SinglyLinkedList sessionInfo;
 
     public Tutor(String tutorId) {
        super(tutorId);
@@ -34,6 +35,14 @@ public class Tutor extends Data {
 
     public SinglyLinkedList getTopics() {
         return topics;
+    }
+
+    public SinglyLinkedList getSessionInfo() {
+        return sessionInfo;
+    }
+
+    public void setSessionInfo(SinglyLinkedList sessionInfo) {
+        this.sessionInfo = sessionInfo;
     }
 
     public void setTopics(Topic topic) {

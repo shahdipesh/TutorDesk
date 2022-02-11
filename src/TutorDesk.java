@@ -10,9 +10,12 @@ public class TutorDesk {
         Scanner s = new Scanner(new File(pathname));
         String line="";
         while(s.hasNextLine()){
-            line = s.nextLine();
-            validator.validate(line);
+            line = s.nextLine().trim();
+            if(!line.contains("#") && !line.isBlank()) {
+                validator.validate(line);
+            }
         }
+        System.out.println("EXITING...No QUIT command found");
 
 
     }

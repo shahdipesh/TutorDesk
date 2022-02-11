@@ -16,6 +16,8 @@ public class SinglyLinkedList {
             size++;
     }
 
+
+
     public Data find(String id){
         boolean found = false;
             Node curr = top;
@@ -35,6 +37,38 @@ public class SinglyLinkedList {
                 return null;
             }
 
+    }
+
+
+    public void merge(SinglyLinkedList list){
+        if(list!=null){
+            Node curr = list.getTop();
+            while(curr != null){
+                if(curr.getData() instanceof Data) {
+                    this.insert(curr.getData());
+                }
+                else{
+                    System.out.println("Unable to merge mismatched List");
+                }
+                curr=curr.getNext();
+            }
+        }
+    }
+
+    public int getSize() {
+        return size;
+    }
+
+    public void setSize(int size) {
+        this.size = size;
+    }
+
+    public void setTop(Node top) {
+        this.top = top;
+    }
+
+    public Node getTop() {
+        return top;
     }
 
 }
