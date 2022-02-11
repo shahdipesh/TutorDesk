@@ -1,19 +1,19 @@
-import java.io.InputStreamReader;
+import java.io.*;
 import java.util.Scanner;
 
 public class TutorDesk {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws FileNotFoundException {
 
         Validator validator = new Validator();
+        final String pathname ="/Users/dipeshasd/Desktop/TutorDesk/src/Commands.txt";
+        Scanner s = new Scanner(new File(pathname));
+        String line="";
+        while(s.hasNextLine()){
+            line = s.nextLine();
+            validator.validate(line);
+        }
 
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Please enter your input: ");
-        String input = scanner.nextLine();
-        validator.validate(input);
-        System.out.println("User Input from console: " + input);
-        input = scanner.nextLine();
-        validator.validate(input);
 
     }
 }

@@ -29,8 +29,13 @@ public class Service {
         Tutor tutor = (Tutor) tutorList.find(tutorId);
         Topic topic = new Topic(topicName,price);
         if(tutor!=null){
-           tutor.getTopics().insert(topic);
-            System.out.println(tutor.getTopics());
+            if(tutor.getTopics().find(topicName)==null) {
+                tutor.getTopics().insert(topic);
+                System.out.println("CONFIRMED: Adding " + topicName + " to tutor with id " + tutorId);
+            }
+            else{
+                System.out.println("DUPLICATE: Failed to add" + topicName + " to tutor with id " + tutorId);
+            }
         }
         else{
             System.out.println("Tutor not found");
