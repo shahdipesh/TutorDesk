@@ -55,8 +55,9 @@ public class Service {
             currentNode=currentNode.getNext();
         }
         if(orderedTutorList.getSize()>0) {
-            Data tutor = orderedTutorList.getTop().getData();
-            Topic topicToAssign = (Topic) ((Tutor)tutor).getTopics().find(topic);
+            Data data = orderedTutorList.getTop().getData();
+            Tutor tutor = ((Tutor)data);
+            Topic topicToAssign = (Topic) tutor.getTopics().find(topic);
             assignTutorToStudent(orderedTutorList, studentId, hours,topic);
         }
         else{
@@ -91,7 +92,7 @@ public class Service {
             if (hoursToFulfill > 0) {
                 System.out.println("No tutor available to teach " + topic + " for " + requestedHours + " hours");
             } else {
-                /****Merge 2 ll****/
+                /****Merge 2 list****/
                     student.getSessionInfo().merge(tempStdData);
                 Node currSession = student.getSessionInfo().getTop();
                 while (currSession != null) {
@@ -117,7 +118,8 @@ public class Service {
         if(student != null){
             if(student instanceof Student) {
                 Node curr = ((Student)student).getSessionInfo().getTop();
-                System.out.println("----Report for "+studentId+" -----");
+                System.out.println("\n----Report for "+studentId+" -----");
+                System.out.println("------------------------------------------------------------------------");
                 while(curr!=null){
                     Data data = curr.getData();
                     if(data instanceof StudentSessionInfo){
@@ -127,7 +129,7 @@ public class Service {
                         curr=curr.getNext();
                     }
                 }
-
+                System.out.println("------------------------------------------------------------------------");
             }
         }
         else{
@@ -138,10 +140,21 @@ public class Service {
     public void handleTutorReport(String tutorId) {
        Node curr = studentList.getTop();
        Data data;
+        System.out.println("\n----Report for "+tutorId+" -----");
+        System.out.println("------------------------------------------------------------------------");
        while(curr!=null){
            Student currStudent = (Student)curr.getData();
-
+           StudentSessionInfo session = (StudentSessionInfo) currStudent.getSessionInfo().find(tutorId);
+           if(session!=null){
+               String studentId = currStudent.getStudentId();
+               String topic = session.getTopicStudied().getTopicName();
+               int hours = session.getHoursStudies();
+               int revenue = session.getCost();
+               System.out.println("Appointment: Student: "+studentId+", topic: "+topic+
+                       ", hours: "+hours+", total Revenue: "+revenue);
+           }
            curr=curr.getNext();
        }
+        System.out.println("------------------------------------------------------------------------");
     }
 }

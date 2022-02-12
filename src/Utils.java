@@ -40,6 +40,7 @@ public class Utils {
         while(currentNode!=null && currentData!=null && shouldIContinue)
         {
             if(currentData instanceof Tutor) {
+                currentData=currentNode.getData();
                 SinglyLinkedList currTopics = ((Tutor) currentData).getTopics();
                 Topic topic = (Topic) currTopics.find(topicId);
                 if (topic.getPrice() < price) {

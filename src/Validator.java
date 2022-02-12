@@ -69,7 +69,7 @@ public class Validator {
                 handler.handleTutorReport(tutorId);
                 break;
 
-            case "QUIT":
+            case "END":
                 System.out.println("BYE");
                 System.exit(0);
                 break;
