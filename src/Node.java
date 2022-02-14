@@ -1,3 +1,11 @@
+// CLASS: Node
+//
+// Author: Dipesh Shah, 7882947
+//
+// REMARKS: This class holds a data of type Data and points to another node.
+//
+//-----------------------------------------
+
 public class Node {
     private Data data;
     private Node next;

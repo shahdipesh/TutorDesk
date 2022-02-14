@@ -1,3 +1,11 @@
+// CLASS: Utils
+//
+// Author: Dipesh Shah, 7882947
+//
+// REMARKS: This class holds all the misc methods that we need to do certain calculations.
+//
+//-----------------------------------------
+
 public class Utils {
 
   void generateMsg(String person, boolean status,String id){

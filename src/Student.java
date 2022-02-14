@@ -1,3 +1,11 @@
+// CLASS: Student
+//
+// Author: Dipesh Shah, 7882947
+//
+// REMARKS: This class extends Data and stores info about a student.
+//
+//-----------------------------------------
+
 public class Student extends Data{
 
     SinglyLinkedList sessionInfo;

@@ -1,3 +1,11 @@
+// CLASS: Tutor
+//
+// Author: Dipesh Shah, 7882947
+//
+// REMARKS: This class extends Data and stores info about a Tutor.
+//
+//-----------------------------------------
+
 public class Tutor extends Data {
 
     private int availableHours;
@@ -44,6 +52,7 @@ public class Tutor extends Data {
     public void setSessionInfo(SinglyLinkedList sessionInfo) {
         this.sessionInfo = sessionInfo;
     }
+
 
     public void setTopics(Topic topic) {
         topics.insert(topic);

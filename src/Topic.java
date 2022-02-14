@@ -1,3 +1,11 @@
+// CLASS: Topic
+//
+// Author: Dipesh Shah, 7882947
+//
+// REMARKS: This class extends Data and stores info about a Topic.
+//
+//-----------------------------------------
+
 public class Topic extends Data{
 
     private int price;

@@ -1,3 +1,11 @@
+// CLASS: Handler
+//
+// Author: Dipesh Shah, 7882947
+//
+// REMARKS: This class handles the command from user
+//
+//-----------------------------------------
+
 public class Handler {
 
     Service service = new Service();

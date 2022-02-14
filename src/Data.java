@@ -1,3 +1,11 @@
+// CLASS: Data
+//
+// Author: Dipesh Shah, 7882947
+//
+// REMARKS: This class acts as a parent Data type for other classes
+//
+//-----------------------------------------
+
 abstract class Data {
      String id;
 

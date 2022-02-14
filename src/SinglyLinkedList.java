@@ -1,3 +1,10 @@
+// CLASS: SinglyLinkedList
+//
+// Author: Dipesh Shah, 7882947
+//
+// REMARKS: This data structure holds our Data class type objects.
+//
+//-----------------------------------------
 public class SinglyLinkedList {
     Node top ;
     private int size;

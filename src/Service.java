@@ -1,13 +1,22 @@
+// CLASS: Service
+//
+// Author: Dipesh Shah, 7882947
+//
+// REMARKS: This class contains all the business logics required to handle the different commands
+//
+//-----------------------------------------
+
 public class Service {
 
-    SinglyLinkedList tutorList = new SinglyLinkedList();
-    SinglyLinkedList studentList = new SinglyLinkedList();
-    SinglyLinkedList orderedTutorList = new SinglyLinkedList();
+    SinglyLinkedList tutorList = new SinglyLinkedList(); // list of all Tutors
+    SinglyLinkedList studentList = new SinglyLinkedList(); // list of all students
+    SinglyLinkedList tutorsAvailableToTeach = new SinglyLinkedList(); // stores tutors that are available to teach a requested topic
     Utils util = new Utils();
+
 
     public void createTutor(String tutorId, int availableHours){
         Data tutor = new Tutor(tutorId,availableHours);
-        if(tutorList.find(tutorId)==null){
+        if(tutorList.find(tutorId) == null){
             tutorList.insert(tutor);
            util.generateMsg("Tutor",true,tutorId);
         }else{
@@ -50,15 +59,15 @@ public class Service {
             currentTutor= currentNode.getData();
             Topic currentTopic = (Topic) ((Tutor) currentTutor).getTopics().find(topic);
             if(currentTopic!=null){
-                util.filterAvailableTutors(this.orderedTutorList,(Tutor) currentTutor,currentTopic.getPrice(),currentTopic.getId());
+                util.filterAvailableTutors(this.tutorsAvailableToTeach,(Tutor) currentTutor,currentTopic.getPrice(),currentTopic.getId());
             }
             currentNode=currentNode.getNext();
         }
-        if(orderedTutorList.getSize()>0) {
-            Data data = orderedTutorList.getTop().getData();
+        if(tutorsAvailableToTeach.getSize()>0) {
+            Data data = tutorsAvailableToTeach.getTop().getData();
             Tutor tutor = ((Tutor)data);
             Topic topicToAssign = (Topic) tutor.getTopics().find(topic);
-            assignTutorToStudent(orderedTutorList, studentId, hours,topic);
+            assignTutorToStudent(tutorsAvailableToTeach, studentId, hours,topic);
         }
         else{
             System.out.println("No tutor available to teach "+topic);
@@ -66,10 +75,10 @@ public class Service {
     }
 
     public void assignTutorToStudent(SinglyLinkedList l,String studentId,int requestedHours,String topic){
-        Node curr = orderedTutorList.getTop();
+        Node curr = tutorsAvailableToTeach.getTop();
         Student student = (Student) studentList.find(studentId);
         SinglyLinkedList tempStdData = new SinglyLinkedList();
-        SinglyLinkedList tempTutorData = new SinglyLinkedList();
+//        SinglyLinkedList tempTutorData = new SinglyLinkedList();
         if(student!=null) {
             Data data = null;
             int hoursToFulfill = requestedHours;
@@ -80,10 +89,10 @@ public class Service {
                     int hoursTaught = util.hoursManager(availableHours, hoursToFulfill);
                     hoursToFulfill -= availableHours;
                     Topic topicStudied = (Topic) ((Tutor) data).getTopics().find(topic);
-                    Data sessionInfoStd = new StudentSessionInfo(((Tutor) data).getTutorId(), hoursTaught, topicStudied);
-                    Data sessionInfoTutor = new TutorSessionInfo(studentId,topicStudied,hoursTaught);
+                    Data sessionInfoStd = new SessionInfo(((Tutor) data).getTutorId(), hoursTaught, topicStudied);
+//                    Data sessionInfoTutor = new TutorSessionInfo(studentId,topicStudied,hoursTaught);
                     tempStdData.insert(sessionInfoStd);
-                    tempTutorData.insert(sessionInfoTutor);
+//                    tempTutorData.insert(sessionInfoTutor);
                     curr = curr.getNext();
                 } else {
                     System.out.println("Data is not of type tutor");
@@ -92,17 +101,25 @@ public class Service {
             if (hoursToFulfill > 0) {
                 System.out.println("No tutor available to teach " + topic + " for " + requestedHours + " hours");
             } else {
-                /****Merge 2 list****/
-                    student.getSessionInfo().merge(tempStdData);
+                /****Merge new session with previous session inside student class****/
+                student.getSessionInfo().merge(tempStdData);
                 Node currSession = student.getSessionInfo().getTop();
                 while (currSession != null) {
                     Data sessionData = currSession.getData();
-                    if (sessionData instanceof StudentSessionInfo) {
+                    if (sessionData instanceof SessionInfo) {
                         String tutorId = sessionData.getId();
-                        int sessionLength = ((StudentSessionInfo) sessionData).getHoursStudies();
-                        int cost = ((StudentSessionInfo) sessionData).getCost();
-                        System.out.println("Tutor " + tutorId + " will tutor student " + studentId + " for " + sessionLength + " hours in topic " + topic + " at a rate of " + ((StudentSessionInfo) sessionData).getTopicStudied().getPrice());
-                        currSession = currSession.getNext();
+                            Tutor tutor = (Tutor) tutorList.find(tutorId);
+                           if(tutor != null) {
+                            int sessionLength = ((SessionInfo) sessionData).getHoursStudies();
+                               Tutor tutorToDecrementHoursFrom = (Tutor) tutor;
+                               tutorToDecrementHoursFrom.setAvailableHours(tutorToDecrementHoursFrom.getAvailableHours() - sessionLength);
+                               int cost = ((SessionInfo) sessionData).getCost();
+                            System.out.println("Tutor " + tutorId + " will tutor student " + studentId + " for " + sessionLength + " hours in topic " + topic + " at a rate of " + ((SessionInfo) sessionData).getTopicStudied().getPrice());
+                            currSession = currSession.getNext();
+                        }
+                           else{
+                               System.out.println("Unable to find tutor inside");
+                           }
                     }
                 }
             }
@@ -122,8 +139,8 @@ public class Service {
                 System.out.println("------------------------------------------------------------------------");
                 while(curr!=null){
                     Data data = curr.getData();
-                    if(data instanceof StudentSessionInfo){
-                        StudentSessionInfo session = (StudentSessionInfo)data;
+                    if(data instanceof SessionInfo){
+                        SessionInfo session = (SessionInfo)data;
                         System.out.println("Appointment: Tutor: "+session.getId()+", topic: "+session.getTopicStudied().getTopicName()+
                                 ", hours: "+session.getHoursStudies()+", cost: "+session.getCost());
                         curr=curr.getNext();
@@ -144,7 +161,7 @@ public class Service {
         System.out.println("------------------------------------------------------------------------");
        while(curr!=null){
            Student currStudent = (Student)curr.getData();
-           StudentSessionInfo session = (StudentSessionInfo) currStudent.getSessionInfo().find(tutorId);
+           SessionInfo session = (SessionInfo) currStudent.getSessionInfo().find(tutorId);
            if(session!=null){
                String studentId = currStudent.getStudentId();
                String topic = session.getTopicStudied().getTopicName();

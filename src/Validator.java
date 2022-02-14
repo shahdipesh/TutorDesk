@@ -1,3 +1,11 @@
+// CLASS: Validator
+//
+// Author: Dipesh Shah, 7882947
+//
+// REMARKS: This class validates the user command before sending it to Handler class.
+//
+//-----------------------------------------
+
 public class Validator {
 
     Handler handler = new Handler();
