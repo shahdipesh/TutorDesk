@@ -10,6 +10,7 @@ public class Node {
     private Data data;
     private Node next;
 
+    //constructor
     public Node(Data data, Node next) {
         this.data = data;
         this.next = next;

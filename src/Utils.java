@@ -10,13 +10,21 @@ public class Utils {
 
   void generateMsg(String person, boolean status,String id){
       if(status){
-          System.out.println(person+" with userid "+ id+ " successfully created.");
+          System.out.println("CONFIRMED: "+person+" with userid "+ id+ " successfully created.");
       }
       else{
-          System.out.println("Duplicate"+ person +" with userid "+ id);
+          System.out.println("DUPLICATE: "+ person +" with userid "+ id);
       }
   }
 
+    //------------------------------------------------------
+    // validateLength
+    //
+    // PURPOSE: validate the given string to check if it contains spaces or length more than 80 characters.
+    // PARAMETERS:
+    //     str: string to validate
+    //Returns: true if the given string passes the validation test
+    //------------------------------------------------------
   boolean validateLength(String str){
       if(str.length()<=80 && !str.contains(" ")){
           return true;
@@ -26,6 +34,17 @@ public class Utils {
       }
   }
 
+    //------------------------------------------------------
+    // hoursManager
+    //
+    // PURPOSE: Used in "assignTutorToStudent" method of Service class to determine if we should filfill the remaining hours
+    //          by the next available tutor.
+    // PARAMETERS:
+    //     availableHours: hours available with the tutor
+    //     hoursToFulfill: hours to be fulfilled
+    //Returns: if availablehours > hoursToFulfill we return the hours offered by tutor else if the hourToFulfill is
+    //          greater we return hours we need to fulfill.
+    //------------------------------------------------------
     int hoursManager(int availableHours, int hoursToFulfill){
         if (availableHours - hoursToFulfill <= 0) {
             return availableHours;

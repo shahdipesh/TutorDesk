@@ -8,7 +8,7 @@
 
 public class Student extends Data{
 
-    SinglyLinkedList sessionInfo;
+    SinglyLinkedList sessionInfo; //linked-list of all the tutoring session that a student had
 
     public Student(String studentId) {
        super(studentId);

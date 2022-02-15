@@ -16,11 +16,12 @@ public class Validator {
         String requestType = tokens[0];
         String tutorId;
         String studentId;
+        //based on the first token of the command we determine which command was passed.
         switch (requestType) {
             case "TUTOR":
                  tutorId = tokens[1];
                 int availableHours = Integer.parseInt(tokens[2]) ;
-                if(tutorId.length()<=80 && !tutorId.contains(" ")) {
+                if(util.validateLength(tutorId)) {
                     if (availableHours > 0 && availableHours <= 1000) {
                         handler.tutorHandler(tutorId, availableHours);
                     } else {
@@ -33,7 +34,7 @@ public class Validator {
 
             case "STUDENT":
                  studentId = tokens[1];
-                if(studentId.length()<=80 && !studentId.contains(" ")){
+                if(util.validateLength(studentId)){
                     handler.studentHandler(studentId);
                 }
                 else{
@@ -79,7 +80,7 @@ public class Validator {
 
             case "END":
                 System.out.println("BYE");
-                System.exit(0);
+                System.exit(0); //We exit the program if we encounter END
                 break;
 
 

@@ -13,6 +13,13 @@ public class SinglyLinkedList {
         size=0;
     }
 
+    //------------------------------------------------------
+    // insert
+    //
+    // PURPOSE: Insert data of type Data into the linked-list.
+    // PARAMETERS:
+    //     data: data to be inserted
+    //------------------------------------------------------
     public void insert(Data data){
             if(top == null){
                  top = new Node(data,null);
@@ -24,7 +31,13 @@ public class SinglyLinkedList {
     }
 
 
-
+    //------------------------------------------------------
+    // find
+    //
+    // PURPOSE: find a data with given id from the given list
+    // PARAMETERS:
+    //     id: id to lookup from the linked-list
+    //------------------------------------------------------
     public Data find(String id){
         boolean found = false;
             Node curr = top;
@@ -46,12 +59,18 @@ public class SinglyLinkedList {
 
     }
 
-
+    //------------------------------------------------------
+    // merge
+    //
+    // PURPOSE: merge two linked list
+    // PARAMETERS:
+    //     list: reference to the list which should be merged to this linked list
+    //------------------------------------------------------
     public void merge(SinglyLinkedList list){
         if(list!=null){
             Node curr = list.getTop();
             while(curr != null){
-                if(curr.getData() instanceof Data) {
+                if(curr.getData() != null) {
                     this.insert(curr.getData());
                 }
                 else{

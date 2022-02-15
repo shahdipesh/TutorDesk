@@ -18,6 +18,7 @@ public class SessionInfo extends Data{
         this.topicStudied = topicStudied;
     }
 
+    //get total cost for each session
     int getCost(){
         return this.hoursStudies *topicStudied.getPrice();
     }
@@ -33,7 +34,6 @@ public class SessionInfo extends Data{
     public Topic getTopicStudied() {
         return topicStudied;
     }
-
 
     public void setTopicStudied(Topic topicStudied) {
         this.topicStudied = topicStudied;

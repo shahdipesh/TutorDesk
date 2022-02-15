@@ -9,8 +9,8 @@
 public class Tutor extends Data {
 
     private int availableHours;
-    SinglyLinkedList topics;
-    SinglyLinkedList sessionInfo;
+    SinglyLinkedList topics;    //linked-list to hold list of topics taught by the tutor
+    SinglyLinkedList sessionInfo; //linked-list to hold every tutoring session that a tutor had
 
     public Tutor(String tutorId) {
        super(tutorId);
