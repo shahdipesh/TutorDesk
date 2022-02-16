@@ -7,10 +7,9 @@
 //-----------------------------------------
 
 public class Service {
-
     SinglyLinkedList tutorList = new SinglyLinkedList(); // list of all Tutors
-    SinglyLinkedList studentList = new SinglyLinkedList(); // list of all students
-    SinglyLinkedList tutorsAvailableToTeach = new SinglyLinkedList(); // stores tutors that are available to teach a requested topic
+     SinglyLinkedList studentList = new SinglyLinkedList(); // list of all students
+      SinglyLinkedList tutorsAvailableToTeach = new SinglyLinkedList(); // stores tutors that are available to teach a requested topic
     Utils util = new Utils(); //contains util functions that our code may require.
 
 
@@ -135,9 +134,8 @@ public class Service {
                     int availableHours = ((Tutor) data).getAvailableHours();
                     int hoursTaught = util.hoursManager(availableHours, hoursToFulfill);
                     hoursToFulfill -= availableHours;
-                    Topic topicStudied = topic; //topic requested by student
                     //generate a session object with tutorId, hours and topic studied
-                    Data sessionInfo = new SessionInfo(((Tutor) data).getTutorId(), hoursTaught, topicStudied);
+                    Data sessionInfo = new SessionInfo(((Tutor) data).getTutorId(), hoursTaught, topic);
                     //hold there data temporarily because the hour requirement might not be met once we loop through the list so
                     //rather than updating changes to the original list we hold these data temporarily
                     tempStdData.insert(sessionInfo);
@@ -149,7 +147,7 @@ public class Service {
             //If we loop throughout the entire ordered list and we still have hours to fulfill
             //we are unable to assign any tutor.
             if (hoursToFulfill > 0) {
-                System.out.println("No tutor available to teach " + topic + " for " + requestedHours + " hours");
+                System.out.println("No tutor available to teach " + topic.getTopicName() + " for " + requestedHours + " hours");
             } else {
                 //Merge new session with previous session inside student class since the student with requested hours can be tutored
                 student.getSessionInfo().merge(tempStdData);
@@ -164,7 +162,7 @@ public class Service {
                                Tutor tutorToDecrementHoursFrom = (Tutor) tutor;
                                tutorToDecrementHoursFrom.setAvailableHours(tutorToDecrementHoursFrom.getAvailableHours() - sessionLength);
                                int cost = ((SessionInfo) sessionData).getCost(); //cost for a session with the tutor.
-                            System.out.println("Tutor " + tutorId + " will tutor student " + studentId + " for " + sessionLength + " hours in topic " + topic + " at a rate of " + ((SessionInfo) sessionData).getTopicStudied().getPrice());
+                            System.out.println("Tutor " + tutorId + " will tutor student " + studentId + " for " + sessionLength + " hours in topic " + topic.getTopicName() + " at a rate of " + ((SessionInfo) sessionData).getTopicStudied().getPrice());
                             currSession = currSession.getNext();
                         }
                            else{
@@ -239,4 +237,7 @@ public class Service {
        }
         System.out.println("------------------------------------------------------------------------");
     }
+
+
+
 }
