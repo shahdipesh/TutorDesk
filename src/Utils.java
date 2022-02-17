@@ -54,6 +54,17 @@ public class Utils {
 
     }
 
+    //------------------------------------------------------
+    // filterAvailableTutors
+    //
+    // PURPOSE: insert a tutor into a list in sorted order based on price, but if the price is same sort on the basis of
+    //          available hours.
+    // PARAMETERS:
+    //     list: list where we should insert a tutor.
+    //     tutor: tutor to insert
+    //     price: price for the topic that the tutor teaches on the basis of which we sort.
+    //     topicId: name of the topic. We sort on the basis of this topics price.
+    //------------------------------------------------------
     public void filterAvailableTutors(SinglyLinkedList list,Tutor tutor, int price, String topicId){
         Node currentNode=list.top;
         Node previousNode = null;
