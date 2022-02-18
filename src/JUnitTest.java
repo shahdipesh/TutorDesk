@@ -43,7 +43,6 @@ public class JUnitTest {
     public  void shouldInsertTutorInSortedOrderBasedOnPrice(){
         Data data;
         Utils util = new Utils();
-        Validator validator = new Validator();
         SinglyLinkedList tutorList = new SinglyLinkedList();
         Tutor tutor1 = new Tutor("tutor1",5);
         Tutor tutor2 = new Tutor("tutor2",10);
@@ -58,7 +57,6 @@ public class JUnitTest {
     public  void shouldInsertTutorInSortedOrderBasedOnNumHours(){
         Data data;
         Utils util = new Utils();
-        Validator validator = new Validator();
         SinglyLinkedList tutorList = new SinglyLinkedList();
         Tutor tutor1 = new Tutor("tutor1",40);
         Tutor tutor2 = new Tutor("tutor2",100);
@@ -91,7 +89,7 @@ public class JUnitTest {
     public void shouldCreateNewTutor(){
         Validator validator = new Validator();
         validator.validate("TUTOR tutor2 15");
-        int tutorListSize = validator.handler.service.tutorList.getSize();
+        int tutorListSize = validator.handler.service.getTutorList().getSize();
         Assert.assertEquals(1, tutorListSize);
     }
 
@@ -99,7 +97,7 @@ public class JUnitTest {
     public void shouldCreateNewStudent(){
         Validator validator = new Validator();
         validator.validate("STUDENT test");
-        int studentListSize = validator.handler.service.studentList.getSize();
+        int studentListSize = validator.handler.service.getStudentList().getSize();
         Assert.assertEquals(1, studentListSize);
     }
 
@@ -108,7 +106,7 @@ public class JUnitTest {
         Validator validator = new Validator();
         validator.validate("TUTOR tutor1 10");
         validator.validate("TOPIC OO tutor1 10");
-        Tutor tutor = (Tutor) validator.handler.service.tutorList.getTop().getData();
+        Tutor tutor = (Tutor) validator.handler.service.getTutorList().getTop().getData();
         String topicName = tutor.getTopics().getTop().getData().getId();
         Assert.assertEquals("OO",topicName );
     }
@@ -120,7 +118,7 @@ public class JUnitTest {
         validator.validate("TOPIC OO tutor1 10");
         validator.validate("STUDENT std1");
         validator.validate("REQUEST std1 OO 5");
-        Student data = (Student) validator.handler.service.studentList.getTop().getData();
+        Student data = (Student) validator.handler.service.getStudentList().getTop().getData();
         String tutorName =data.getSessionInfo().getTop().getData().getId();
         Assert.assertEquals("tutor1",tutorName );
     }

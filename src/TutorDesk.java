@@ -28,7 +28,7 @@ public class TutorDesk {
         while(s.hasNextLine()){
             line = s.nextLine().trim();
             if(!line.contains("#") && !line.isBlank()) {
-                validator.validate(line);
+                validator.validate(line.replaceAll("\\s+", " ")); //removing extra space between words
             }
         }
         System.out.println("EXITING...No QUIT command found");

@@ -7,9 +7,9 @@
 //-----------------------------------------
 
 public class Service {
-    SinglyLinkedList tutorList = new SinglyLinkedList(); // list of all Tutors
-     SinglyLinkedList studentList = new SinglyLinkedList(); // list of all students
-      SinglyLinkedList tutorsAvailableToTeach = new SinglyLinkedList(); // stores tutors that are available to teach a requested topic
+    private SinglyLinkedList tutorList = new SinglyLinkedList(); // list of all Tutors
+    private SinglyLinkedList studentList = new SinglyLinkedList(); // list of all students
+    private  SinglyLinkedList tutorsAvailableToTeach = new SinglyLinkedList(); // stores tutors that are available to teach a requested topic
     Utils util = new Utils(); //contains util functions that our code may require.
 
 
@@ -85,6 +85,7 @@ public class Service {
     //     hours: hours requested by student
     //------------------------------------------------------
     public void handleTutoringReq(String studentId, String topic, int hours) {
+        tutorsAvailableToTeach=new SinglyLinkedList();
         Node currentNode = tutorList.top;
         Data currentTutor;
         while(currentNode != null){
@@ -99,10 +100,10 @@ public class Service {
             Data data = tutorsAvailableToTeach.getTop().getData();
             Tutor tutor = ((Tutor)data);
             Topic topicToAssign = (Topic) tutor.getTopics().find(topic);
-            assignTutorToStudent(tutorsAvailableToTeach, studentId, hours,topicToAssign);
+            assignTutorToStudent(studentId, hours,topicToAssign);
         }
         else{
-            System.out.println("No tutor available to teach "+topic);
+            System.out.println("FAIL: No tutor available to teach "+topic);
         }
     }
 
@@ -116,7 +117,7 @@ public class Service {
     //     topic: name of the topic requested by student to study
     //     requestedHours: hours requested by student
     //------------------------------------------------------
-    public void assignTutorToStudent(SinglyLinkedList filteredTutors,String studentId,int requestedHours,Topic topic){
+    public void assignTutorToStudent(String studentId,int requestedHours,Topic topic){
         Node curr = tutorsAvailableToTeach.getTop(); // pointer to top of the list of tutorsAvailableToTeach
         Student student = (Student) studentList.find(studentId); //student with id of studentId.
         //temporary Linked-list to hold list of tutors who are required to teach 'requestedHours' hours of topic
@@ -126,7 +127,7 @@ public class Service {
             the hour requirement is met.
          */
         if(student!=null) {
-            Data data = null;
+            Data data ;
             int hoursToFulfill = requestedHours;
             while (curr != null && hoursToFulfill > 0) {
                 data = curr.getData();
@@ -147,7 +148,7 @@ public class Service {
             //If we loop throughout the entire ordered list and we still have hours to fulfill
             //we are unable to assign any tutor.
             if (hoursToFulfill > 0) {
-                System.out.println("No tutor available to teach " + topic.getTopicName() + " for " + requestedHours + " hours");
+                System.out.println("FAIL: No tutor available to teach " + topic.getTopicName() + " for " + requestedHours + " hours");
             } else {
                 //Merge new session with previous session inside student class since the student with requested hours can be tutored
                 student.getSessionInfo().merge(tempStdData);
@@ -159,21 +160,20 @@ public class Service {
                             Tutor tutor = (Tutor) tutorList.find(tutorId);
                            if(tutor != null) {
                             int sessionLength = ((SessionInfo) sessionData).getHoursStudies();
-                               Tutor tutorToDecrementHoursFrom = (Tutor) tutor;
-                               tutorToDecrementHoursFrom.setAvailableHours(tutorToDecrementHoursFrom.getAvailableHours() - sessionLength);
+                               tutor.setAvailableHours(tutor.getAvailableHours() - sessionLength);
                                int cost = ((SessionInfo) sessionData).getCost(); //cost for a session with the tutor.
-                            System.out.println("Tutor " + tutorId + " will tutor student " + studentId + " for " + sessionLength + " hours in topic " + topic.getTopicName() + " at a rate of " + ((SessionInfo) sessionData).getTopicStudied().getPrice());
+                            System.out.println("CONFIRMED: Tutor " + tutorId + " will tutor student " + studentId + " for " + sessionLength + " hours in topic " + topic.getTopicName() + " at a rate of " + ((SessionInfo) sessionData).getTopicStudied().getPrice());
                             currSession = currSession.getNext();
                         }
                            else{
-                               System.out.println("Unable to find tutor inside");
+                               System.out.println("FAIL: Unable to find tutor");
                            }
                     }
                 }
             }
         }
         else{
-            System.out.println("Student Not found");
+            System.out.println("NOT FOUND: Student Not found");
         }
     }
 
@@ -189,7 +189,7 @@ public class Service {
         if(student != null){
             if(student instanceof Student) {
                 Node curr = ((Student)student).getSessionInfo().getTop();
-                System.out.println("\n----Report for "+studentId+" -----");
+                System.out.println("\n----REPORT for "+studentId+" -----");
                 System.out.println("------------------------------------------------------------------------");
                // We loop through the session linked-list of the student to get info about each tutoring session he/she had.
                 while(curr!=null){
@@ -205,7 +205,7 @@ public class Service {
             }
         }
         else{
-            System.out.println("Student Not found");
+            System.out.println("NOT FOUND: Student Not found to generate report");
         }
     }
 
@@ -238,6 +238,14 @@ public class Service {
         System.out.println("------------------------------------------------------------------------");
     }
 
+
+    public SinglyLinkedList getTutorList() {
+        return tutorList;
+    }
+
+    public SinglyLinkedList getStudentList() {
+        return studentList;
+    }
 
 
 }

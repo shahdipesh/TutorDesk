@@ -20,7 +20,11 @@ public class SessionInfo extends Data{
 
     //get total cost for each session
     int getCost(){
-        return this.hoursStudies *topicStudied.getPrice();
+        int result =0;
+        if(topicStudied!=null) {
+            result= this.hoursStudies * topicStudied.getPrice();
+        }
+        return result;
     }
 
     public int getHoursStudies() {

@@ -1,8 +1,0 @@
-TUTOR tutor1 5
-TUTOR tutor2 10
-TUTOR tutor3 15
-STUDENT std1
-TOPIC OO tutor1 20
-TOPIC OO tutor2 20
-TOPIC OO tutor3 20
-REQUEST std1 OO 5

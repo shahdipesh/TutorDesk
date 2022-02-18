@@ -1,0 +1,306 @@
+CONFIRMED: Tutor with userid tutor1 successfully created.
+CONFIRMED: Tutor with userid tutor2 successfully created.
+CONFIRMED: Student with userid student1 successfully created.
+CONFIRMED: Adding OO to tutor with id tutor1
+CONFIRMED: Adding OO to tutor with id tutor2
+Attempting to fulfil request for student1 to receive 5 hours of tutoring in topic OO
+CONFIRMED: Tutor tutor2 will tutor student student1 for 5 hours in topic OO at a rate of 15
+
+----REPORT for student1 -----
+------------------------------------------------------------------------
+Appointment: Tutor: tutor2, topic: OO, hours: 5, cost: 75
+------------------------------------------------------------------------
+
+----Report for tutor1 -----
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+
+----Report for tutor2 -----
+------------------------------------------------------------------------
+Appointment: Student: student1, topic: OO, hours: 5, total Revenue: 75
+------------------------------------------------------------------------
+CONFIRMED: Tutor with userid tutor3 successfully created.
+CONFIRMED: Student with userid student2 successfully created.
+CONFIRMED: Adding t2 to tutor with id tutor1
+CONFIRMED: Adding t2 to tutor with id tutor2
+CONFIRMED: Adding t2 to tutor with id tutor3
+Attempting to fulfil request for student2 to receive 15 hours of tutoring in topic t2
+CONFIRMED: Tutor tutor3 will tutor student student2 for 10 hours in topic t2 at a rate of 14
+CONFIRMED: Tutor tutor2 will tutor student student2 for 5 hours in topic t2 at a rate of 14
+
+----REPORT for student2 -----
+------------------------------------------------------------------------
+Appointment: Tutor: tutor3, topic: t2, hours: 10, cost: 140
+Appointment: Tutor: tutor2, topic: t2, hours: 5, cost: 70
+------------------------------------------------------------------------
+
+----Report for tutor3 -----
+------------------------------------------------------------------------
+Appointment: Student: student2, topic: t2, hours: 10, total Revenue: 140
+------------------------------------------------------------------------
+
+----Report for tutor2 -----
+------------------------------------------------------------------------
+Appointment: Student: student2, topic: t2, hours: 5, total Revenue: 70
+Appointment: Student: student1, topic: OO, hours: 5, total Revenue: 75
+------------------------------------------------------------------------
+
+----Report for tutor1 -----
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+Attempting to fulfil request for student1 to receive 1 hours of tutoring in topic othertopic
+FAIL: No tutor available to teach othertopic
+Attempting to fulfil request for student1 to receive 1 hours of tutoring in topic t2
+CONFIRMED: Tutor tutor3 will tutor student student1 for 0 hours in topic t2 at a rate of 14
+CONFIRMED: Tutor tutor2 will tutor student student1 for 0 hours in topic t2 at a rate of 14
+CONFIRMED: Tutor tutor1 will tutor student student1 for 1 hours in topic t2 at a rate of 14
+CONFIRMED: Tutor tutor2 will tutor student student1 for 5 hours in topic t2 at a rate of 15
+
+----REPORT for student1 -----
+------------------------------------------------------------------------
+Appointment: Tutor: tutor3, topic: t2, hours: 0, cost: 0
+Appointment: Tutor: tutor2, topic: t2, hours: 0, cost: 0
+Appointment: Tutor: tutor1, topic: t2, hours: 1, cost: 14
+Appointment: Tutor: tutor2, topic: OO, hours: 5, cost: 75
+------------------------------------------------------------------------
+CONFIRMED: Tutor with userid tutor4 successfully created.
+CONFIRMED: Tutor with userid tutor5 successfully created.
+CONFIRMED: Tutor with userid tutor6 successfully created.
+CONFIRMED: Student with userid student3 successfully created.
+CONFIRMED: Adding t3 to tutor with id tutor4
+CONFIRMED: Adding t3 to tutor with id tutor5
+CONFIRMED: Adding t3 to tutor with id tutor6
+Attempting to fulfil request for student3 to receive 300 hours of tutoring in topic t3
+FAIL: No tutor available to teach t3 for 300 hours
+
+----REPORT for student3 -----
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+
+----Report for tutor4 -----
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+
+----Report for tutor5 -----
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+
+----Report for tutor6 -----
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+CONFIRMED: Adding t4 to tutor with id tutor2
+Attempting to fulfil request for student3 to receive 1 hours of tutoring in topic t4
+FAIL: No tutor available to teach t4 for 1 hours
+
+----Report for tutor2 -----
+------------------------------------------------------------------------
+Appointment: Student: student2, topic: t2, hours: 5, total Revenue: 70
+Appointment: Student: student1, topic: t2, hours: 0, total Revenue: 0
+------------------------------------------------------------------------
+CONFIRMED: Tutor with userid aaron successfully created.
+CONFIRMED: Tutor with userid betty successfully created.
+CONFIRMED: Tutor with userid charles successfully created.
+CONFIRMED: Tutor with userid deborah successfully created.
+CONFIRMED: Student with userid student4 successfully created.
+CONFIRMED: Adding anothertopicthatslonger to tutor with id deborah
+CONFIRMED: Adding anothertopicthatslonger to tutor with id charles
+CONFIRMED: Adding anothertopicthatslonger to tutor with id betty
+CONFIRMED: Adding anothertopicthatslonger to tutor with id aaron
+Attempting to fulfil request for student4 to receive 39 hours of tutoring in topic anothertopicthatslonger
+CONFIRMED: Tutor deborah will tutor student student4 for 8 hours in topic anothertopicthatslonger at a rate of 100
+CONFIRMED: Tutor charles will tutor student student4 for 20 hours in topic anothertopicthatslonger at a rate of 100
+CONFIRMED: Tutor aaron will tutor student student4 for 10 hours in topic anothertopicthatslonger at a rate of 100
+CONFIRMED: Tutor betty will tutor student student4 for 1 hours in topic anothertopicthatslonger at a rate of 100
+CONFIRMED: Tutor with userid tutor111 successfully created.
+CONFIRMED: Tutor with userid tutor112 successfully created.
+CONFIRMED: Tutor with userid tutor113 successfully created.
+CONFIRMED: Tutor with userid tutor121 successfully created.
+CONFIRMED: Tutor with userid tutor122 successfully created.
+CONFIRMED: Tutor with userid tutor123 successfully created.
+CONFIRMED: Tutor with userid tutor131 successfully created.
+CONFIRMED: Tutor with userid tutor132 successfully created.
+CONFIRMED: Tutor with userid tutor133 successfully created.
+CONFIRMED: Student with userid student111 successfully created.
+CONFIRMED: Student with userid student112 successfully created.
+CONFIRMED: Student with userid student113 successfully created.
+CONFIRMED: Adding x1 to tutor with id tutor111
+CONFIRMED: Adding x1 to tutor with id tutor112
+CONFIRMED: Adding x1 to tutor with id tutor113
+CONFIRMED: Adding x1 to tutor with id tutor121
+CONFIRMED: Adding x1 to tutor with id tutor122
+CONFIRMED: Adding x1 to tutor with id tutor123
+CONFIRMED: Adding x1 to tutor with id tutor131
+CONFIRMED: Adding x1 to tutor with id tutor132
+CONFIRMED: Adding x1 to tutor with id tutor133
+CONFIRMED: Adding x2 to tutor with id tutor111
+CONFIRMED: Adding x2 to tutor with id tutor112
+CONFIRMED: Adding x2 to tutor with id tutor113
+CONFIRMED: Adding x2 to tutor with id tutor121
+CONFIRMED: Adding x2 to tutor with id tutor122
+CONFIRMED: Adding x2 to tutor with id tutor123
+CONFIRMED: Adding x2 to tutor with id tutor131
+CONFIRMED: Adding x2 to tutor with id tutor132
+CONFIRMED: Adding x2 to tutor with id tutor133
+CONFIRMED: Adding x3 to tutor with id tutor111
+CONFIRMED: Adding x3 to tutor with id tutor112
+CONFIRMED: Adding x3 to tutor with id tutor113
+CONFIRMED: Adding x3 to tutor with id tutor121
+CONFIRMED: Adding x3 to tutor with id tutor122
+CONFIRMED: Adding x3 to tutor with id tutor123
+CONFIRMED: Adding x3 to tutor with id tutor131
+CONFIRMED: Adding x3 to tutor with id tutor132
+CONFIRMED: Adding x3 to tutor with id tutor133
+Attempting to fulfil request for student111 to receive 30 hours of tutoring in topic x1
+CONFIRMED: Tutor tutor111 will tutor student student111 for 10 hours in topic x1 at a rate of 10
+CONFIRMED: Tutor tutor121 will tutor student student111 for 10 hours in topic x1 at a rate of 10
+CONFIRMED: Tutor tutor131 will tutor student student111 for 10 hours in topic x1 at a rate of 10
+Attempting to fulfil request for student112 to receive 30 hours of tutoring in topic x1
+CONFIRMED: Tutor tutor111 will tutor student student112 for 0 hours in topic x1 at a rate of 10
+CONFIRMED: Tutor tutor121 will tutor student student112 for 0 hours in topic x1 at a rate of 10
+CONFIRMED: Tutor tutor131 will tutor student student112 for 0 hours in topic x1 at a rate of 10
+CONFIRMED: Tutor tutor112 will tutor student student112 for 10 hours in topic x1 at a rate of 10
+CONFIRMED: Tutor tutor122 will tutor student student112 for 10 hours in topic x1 at a rate of 10
+CONFIRMED: Tutor tutor132 will tutor student student112 for 10 hours in topic x1 at a rate of 10
+Attempting to fulfil request for student113 to receive 30 hours of tutoring in topic x1
+CONFIRMED: Tutor tutor111 will tutor student student113 for 0 hours in topic x1 at a rate of 10
+CONFIRMED: Tutor tutor121 will tutor student student113 for 0 hours in topic x1 at a rate of 10
+CONFIRMED: Tutor tutor131 will tutor student student113 for 0 hours in topic x1 at a rate of 10
+CONFIRMED: Tutor tutor112 will tutor student student113 for 0 hours in topic x1 at a rate of 10
+CONFIRMED: Tutor tutor122 will tutor student student113 for 0 hours in topic x1 at a rate of 10
+CONFIRMED: Tutor tutor132 will tutor student student113 for 0 hours in topic x1 at a rate of 10
+CONFIRMED: Tutor tutor113 will tutor student student113 for 30 hours in topic x1 at a rate of 10
+Attempting to fulfil request for student111 to receive 30 hours of tutoring in topic x2
+CONFIRMED: Tutor tutor111 will tutor student student111 for 0 hours in topic x2 at a rate of 10
+CONFIRMED: Tutor tutor121 will tutor student student111 for 0 hours in topic x2 at a rate of 10
+CONFIRMED: Tutor tutor131 will tutor student student111 for 0 hours in topic x2 at a rate of 10
+CONFIRMED: Tutor tutor112 will tutor student student111 for 0 hours in topic x2 at a rate of 10
+CONFIRMED: Tutor tutor122 will tutor student student111 for 0 hours in topic x2 at a rate of 10
+CONFIRMED: Tutor tutor132 will tutor student student111 for 0 hours in topic x2 at a rate of 10
+CONFIRMED: Tutor tutor123 will tutor student student111 for 30 hours in topic x2 at a rate of 10
+CONFIRMED: Tutor tutor111 will tutor student student111 for 10 hours in topic x2 at a rate of 10
+CONFIRMED: Tutor tutor121 will tutor student student111 for 10 hours in topic x2 at a rate of 10
+CONFIRMED: Tutor tutor131 will tutor student student111 for 10 hours in topic x2 at a rate of 10
+Attempting to fulfil request for student112 to receive 30 hours of tutoring in topic x2
+CONFIRMED: Tutor tutor111 will tutor student student112 for -10 hours in topic x2 at a rate of 10
+CONFIRMED: Tutor tutor121 will tutor student student112 for -10 hours in topic x2 at a rate of 10
+CONFIRMED: Tutor tutor131 will tutor student student112 for -10 hours in topic x2 at a rate of 10
+CONFIRMED: Tutor tutor112 will tutor student student112 for 0 hours in topic x2 at a rate of 10
+CONFIRMED: Tutor tutor122 will tutor student student112 for 0 hours in topic x2 at a rate of 10
+CONFIRMED: Tutor tutor132 will tutor student student112 for 0 hours in topic x2 at a rate of 10
+CONFIRMED: Tutor tutor133 will tutor student student112 for 60 hours in topic x2 at a rate of 10
+CONFIRMED: Tutor tutor111 will tutor student student112 for 0 hours in topic x2 at a rate of 10
+CONFIRMED: Tutor tutor121 will tutor student student112 for 0 hours in topic x2 at a rate of 10
+CONFIRMED: Tutor tutor131 will tutor student student112 for 0 hours in topic x2 at a rate of 10
+CONFIRMED: Tutor tutor112 will tutor student student112 for 10 hours in topic x2 at a rate of 10
+CONFIRMED: Tutor tutor122 will tutor student student112 for 10 hours in topic x2 at a rate of 10
+CONFIRMED: Tutor tutor132 will tutor student student112 for 10 hours in topic x2 at a rate of 10
+Attempting to fulfil request for student113 to receive 30 hours of tutoring in topic x2
+CONFIRMED: Tutor tutor111 will tutor student student113 for 0 hours in topic x2 at a rate of 10
+CONFIRMED: Tutor tutor121 will tutor student student113 for 0 hours in topic x2 at a rate of 10
+CONFIRMED: Tutor tutor131 will tutor student student113 for 0 hours in topic x2 at a rate of 10
+CONFIRMED: Tutor tutor112 will tutor student student113 for -10 hours in topic x2 at a rate of 10
+CONFIRMED: Tutor tutor122 will tutor student student113 for -10 hours in topic x2 at a rate of 10
+CONFIRMED: Tutor tutor132 will tutor student student113 for -10 hours in topic x2 at a rate of 10
+CONFIRMED: Tutor tutor113 will tutor student student113 for 50 hours in topic x2 at a rate of 10
+CONFIRMED: Tutor tutor123 will tutor student student113 for 10 hours in topic x2 at a rate of 10
+CONFIRMED: Tutor tutor111 will tutor student student113 for 0 hours in topic x2 at a rate of 10
+CONFIRMED: Tutor tutor121 will tutor student student113 for 0 hours in topic x2 at a rate of 10
+CONFIRMED: Tutor tutor131 will tutor student student113 for 0 hours in topic x2 at a rate of 10
+CONFIRMED: Tutor tutor112 will tutor student student113 for 0 hours in topic x2 at a rate of 10
+CONFIRMED: Tutor tutor122 will tutor student student113 for 0 hours in topic x2 at a rate of 10
+CONFIRMED: Tutor tutor132 will tutor student student113 for 0 hours in topic x2 at a rate of 10
+CONFIRMED: Tutor tutor113 will tutor student student113 for 30 hours in topic x2 at a rate of 10
+Attempting to fulfil request for student111 to receive 30 hours of tutoring in topic x3
+CONFIRMED: Tutor tutor111 will tutor student student111 for 0 hours in topic x3 at a rate of 10
+CONFIRMED: Tutor tutor121 will tutor student student111 for 0 hours in topic x3 at a rate of 10
+CONFIRMED: Tutor tutor131 will tutor student student111 for 0 hours in topic x3 at a rate of 10
+CONFIRMED: Tutor tutor112 will tutor student student111 for 0 hours in topic x3 at a rate of 10
+CONFIRMED: Tutor tutor122 will tutor student student111 for 0 hours in topic x3 at a rate of 10
+CONFIRMED: Tutor tutor132 will tutor student student111 for 0 hours in topic x3 at a rate of 10
+CONFIRMED: Tutor tutor123 will tutor student student111 for 30 hours in topic x3 at a rate of 10
+CONFIRMED: Tutor tutor111 will tutor student student111 for 0 hours in topic x3 at a rate of 10
+CONFIRMED: Tutor tutor121 will tutor student student111 for 0 hours in topic x3 at a rate of 10
+CONFIRMED: Tutor tutor131 will tutor student student111 for 0 hours in topic x3 at a rate of 10
+CONFIRMED: Tutor tutor112 will tutor student student111 for 0 hours in topic x3 at a rate of 10
+CONFIRMED: Tutor tutor122 will tutor student student111 for 0 hours in topic x3 at a rate of 10
+CONFIRMED: Tutor tutor132 will tutor student student111 for 0 hours in topic x3 at a rate of 10
+CONFIRMED: Tutor tutor123 will tutor student student111 for 30 hours in topic x3 at a rate of 10
+CONFIRMED: Tutor tutor111 will tutor student student111 for 10 hours in topic x3 at a rate of 10
+CONFIRMED: Tutor tutor121 will tutor student student111 for 10 hours in topic x3 at a rate of 10
+CONFIRMED: Tutor tutor131 will tutor student student111 for 10 hours in topic x3 at a rate of 10
+Attempting to fulfil request for student112 to receive 30 hours of tutoring in topic x3
+FAIL: No tutor available to teach x3 for 30 hours
+Attempting to fulfil request for student113 to receive 30 hours of tutoring in topic x3
+FAIL: No tutor available to teach x3 for 30 hours
+
+----Report for tutor111 -----
+------------------------------------------------------------------------
+Appointment: Student: student113, topic: x2, hours: 0, total Revenue: 0
+Appointment: Student: student112, topic: x2, hours: -10, total Revenue: -100
+Appointment: Student: student111, topic: x3, hours: 0, total Revenue: 0
+------------------------------------------------------------------------
+
+----Report for tutor112 -----
+------------------------------------------------------------------------
+Appointment: Student: student113, topic: x2, hours: -10, total Revenue: -100
+Appointment: Student: student112, topic: x2, hours: 0, total Revenue: 0
+Appointment: Student: student111, topic: x3, hours: 0, total Revenue: 0
+------------------------------------------------------------------------
+
+----Report for tutor113 -----
+------------------------------------------------------------------------
+Appointment: Student: student113, topic: x2, hours: 50, total Revenue: 500
+------------------------------------------------------------------------
+
+----Report for tutor121 -----
+------------------------------------------------------------------------
+Appointment: Student: student113, topic: x2, hours: 0, total Revenue: 0
+Appointment: Student: student112, topic: x2, hours: -10, total Revenue: -100
+Appointment: Student: student111, topic: x3, hours: 0, total Revenue: 0
+------------------------------------------------------------------------
+
+----Report for tutor122 -----
+------------------------------------------------------------------------
+Appointment: Student: student113, topic: x2, hours: -10, total Revenue: -100
+Appointment: Student: student112, topic: x2, hours: 0, total Revenue: 0
+Appointment: Student: student111, topic: x3, hours: 0, total Revenue: 0
+------------------------------------------------------------------------
+
+----Report for tutor123 -----
+------------------------------------------------------------------------
+Appointment: Student: student113, topic: x2, hours: 10, total Revenue: 100
+Appointment: Student: student111, topic: x3, hours: 30, total Revenue: 300
+------------------------------------------------------------------------
+
+----Report for tutor131 -----
+------------------------------------------------------------------------
+Appointment: Student: student113, topic: x2, hours: 0, total Revenue: 0
+Appointment: Student: student112, topic: x2, hours: -10, total Revenue: -100
+Appointment: Student: student111, topic: x3, hours: 0, total Revenue: 0
+------------------------------------------------------------------------
+
+----Report for tutor132 -----
+------------------------------------------------------------------------
+Appointment: Student: student113, topic: x2, hours: -10, total Revenue: -100
+Appointment: Student: student112, topic: x2, hours: 0, total Revenue: 0
+Appointment: Student: student111, topic: x3, hours: 0, total Revenue: 0
+------------------------------------------------------------------------
+
+----Report for tutor133 -----
+------------------------------------------------------------------------
+Appointment: Student: student112, topic: x2, hours: 60, total Revenue: 600
+------------------------------------------------------------------------
+DUPLICATE: Tutor with userid tutor1
+DUPLICATE: Student with userid student1
+DUPLICATE: Failed to addOO to tutor with id tutor1
+Tutor not found
+Attempting to fulfil request for otherstudent to receive 10 hours of tutoring in topic OO
+NOT FOUND: Student Not found
+NOT FOUND: Student Not found to generate report
+
+----Report for toootor -----
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+BYE
+
+Process finished with exit code 0
